@@ -1,0 +1,22 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dispatch Secondary Workflow
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const response = await github.repos.createDispatchEvent({
+              owner: 'username',
+              repo: 'secondary-repo',
+              event_type: 'trigger-secondary-workflow'
+            });
+            console.log(response);
