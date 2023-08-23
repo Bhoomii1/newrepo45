@@ -16,7 +16,7 @@ jobs:
           script: |
             const response = await github.repos.createDispatchEvent({
               owner: 'Bhoomii1',
-              repo: 'newrepo46',
+              repo: 'newrepo47',
               event_type: 'trigger-secondary-workflow'
             });
             console.log(response);
